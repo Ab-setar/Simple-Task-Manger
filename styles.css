@@ -1,0 +1,104 @@
+/* Make html and body fill full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-page background image */
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Container for task manager content */
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white bg */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Input and Add Button */
+#new-task {
+  width: 70%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#add-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+/* Each task item */
+li {
+  background: white;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+/* Completed tasks style */
+li.completed span {
+  text-decoration: line-through;
+  color: gray;
+  cursor: pointer;
+}
+
+/* Task text clickable */
+li span {
+  cursor: pointer;
+}
+
+/* Delete button */
+button.delete-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.delete-btn:hover {
+  background-color: #c0392b;
+}
