@@ -1,55 +1,61 @@
-/* Make html and body fill full height */
-html, body {
-  height: 100%;
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Full-page background image */
 body {
-  background-image: url('background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f2f2f2, #d1d1d1);
   color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Container for task manager content */
+/* Container styles */
 .container {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white bg */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: white;
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Title */
-h2 {
+h1 {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-/* Input and Add Button */
+/* Input and Button */
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 #new-task {
-  width: 70%;
-  padding: 0.5rem;
-  font-size: 1rem;
+  flex: 1;
+  padding: 0.6rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 #add-btn {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  margin-left: 0.5rem;
-  cursor: pointer;
+  padding: 0.6rem 1rem;
   background-color: #007bff;
-  border: none;
   color: white;
-  border-radius: 4px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -57,48 +63,120 @@ h2 {
   background-color: #0056b3;
 }
 
-/* Task list */
+/* Task List */
 ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 1rem;
 }
 
-/* Each task item */
 li {
-  background: white;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
+  background: #f9f9f9;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
+  transition: background 0.3s ease;
 }
 
-/* Completed tasks style */
-li.completed span {
-  text-decoration: line-through;
-  color: gray;
-  cursor: pointer;
-}
-
-/* Task text clickable */
 li span {
   cursor: pointer;
 }
 
-/* Delete button */
+li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Delete Button */
 button.delete-btn {
   background-color: #e74c3c;
   border: none;
   color: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 3px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button.delete-btn:hover {
   background-color: #c0392b;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1rem;
+  background-color: transparent;
+  color: #555;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 2px solid #4b5563;
+  color: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #1e1e1e, #2c3e50);
+  color: #e0e0e0;
+}
+
+body.dark .container {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+body.dark h1 {
+  color: #f8fafc;
+}
+
+body.dark li {
+  background-color: #4a5568;
+  border-color: #2d3748;
+}
+
+body.dark li.completed span {
+  color: #a0aec0;
+}
+
+body.dark #new-task {
+  background-color: #1a202c;
+  color: white;
+  border-color: #4a5568;
+}
+
+body.dark #add-btn {
+  background-color: #3b82f6;
+}
+
+body.dark #add-btn:hover {
+  background-color: #2563eb;
+}
+
+body.dark .delete-btn {
+  background-color: #ef4444;
+}
+
+body.dark .delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+body.dark footer {
+  color: #cbd5e0;
 }

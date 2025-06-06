@@ -1,4 +1,4 @@
-// Hardcoded initial tasks array
+// Initial tasks
 let tasks = [
   { id: 1, title: 'Buy groceries', completed: false },
   { id: 2, title: 'Read a book', completed: true }
@@ -7,8 +7,9 @@ let tasks = [
 const taskList = document.getElementById('task-list');
 const newTaskInput = document.getElementById('new-task');
 const addBtn = document.getElementById('add-btn');
+const toggleBtn = document.getElementById('toggle-dark');
 
-// Render tasks in the UI
+// Render tasks
 function renderTasks() {
   taskList.innerHTML = '';
   tasks.forEach(task => {
@@ -26,12 +27,11 @@ function renderTasks() {
 
     li.appendChild(span);
     li.appendChild(delBtn);
-
     taskList.appendChild(li);
   });
 }
 
-// Add new task
+// Add task
 function addTask() {
   const title = newTaskInput.value.trim();
   if (title === '') {
@@ -48,7 +48,7 @@ function addTask() {
   renderTasks();
 }
 
-// Toggle task completed
+// Toggle complete
 function toggleCompleted(id) {
   tasks = tasks.map(task =>
     task.id === id ? { ...task, completed: !task.completed } : task
@@ -65,9 +65,30 @@ function deleteTask(id) {
 // Event listeners
 addBtn.addEventListener('click', addTask);
 newTaskInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    addTask();
+  if (e.key === 'Enter') addTask();
+});
+
+// Dark mode logic
+function updateToggleIcon() {
+  if (document.body.classList.contains('dark')) {
+    toggleBtn.textContent = '🌞 Light Mode';
+  } else {
+    toggleBtn.textContent = '🌙 Dark Mode';
   }
+}
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+}
+updateToggleIcon();
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem(
+    'theme',
+    document.body.classList.contains('dark') ? 'dark' : 'light'
+  );
+  updateToggleIcon();
 });
 
 // Initial render

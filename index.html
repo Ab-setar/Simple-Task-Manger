@@ -7,17 +7,21 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div id="container"></div>
+  <div class="container">
+    <h1>📝 My Task Manager</h1>
+    <button id="toggle-dark" class="theme-toggle">🌙 Dark Mode</button>
 
-  <h2>Simple Task Manager</h2>
+    <div class="input-group">
+      <input type="text" id="new-task" placeholder="What needs to be done?" />
+      <button id="add-btn">Add Task</button>
+    </div>
 
-  <input type="text" id="new-task" placeholder="Enter new task" />
-  <button id="add-btn">Add</button>
-
-  <ul id="task-list">
-    <!-- Tasks will appear here -->
-  </ul>
+    <ul id="task-list"></ul>
   </div>
+
+  <footer>
+    <p>© 2025 Abdusetar Task Manager</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
