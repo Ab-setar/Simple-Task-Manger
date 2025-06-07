@@ -15,7 +15,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Container styles */
 .container {
   background: white;
   max-width: 500px;
@@ -33,7 +32,6 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* Input and Button */
 .input-group {
   display: flex;
   gap: 0.5rem;
@@ -63,7 +61,6 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Task List */
 ul {
   list-style: none;
   padding-left: 0;
@@ -79,10 +76,12 @@ li {
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
+  gap: 0.3rem;
 }
 
 li span {
-  cursor: pointer;
+  flex: 1;
+  cursor: default;
 }
 
 li.completed span {
@@ -90,19 +89,41 @@ li.completed span {
   color: gray;
 }
 
-/* Delete Button */
-button.delete-btn {
-  background-color: #e74c3c;
+/* Buttons */
+button.delete-btn,
+button.update-btn,
+button.finish-btn {
+  padding: 0.3rem 0.7rem;
   border: none;
   color: white;
-  padding: 0.3rem 0.7rem;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 0.85rem;
   transition: background-color 0.3s ease;
+}
+
+button.delete-btn {
+  background-color: #e74c3c;
 }
 
 button.delete-btn:hover {
   background-color: #c0392b;
+}
+
+button.update-btn {
+  background-color: #f59e0b;
+}
+
+button.update-btn:hover {
+  background-color: #d97706;
+}
+
+button.finish-btn {
+  background-color: #10b981;
+}
+
+button.finish-btn:hover {
+  background-color: #059669;
 }
 
 /* Footer */
@@ -114,7 +135,7 @@ footer {
   color: #555;
 }
 
-/* Theme toggle button */
+/* Theme toggle */
 .theme-toggle {
   background: none;
   border: 2px solid #4b5563;
@@ -131,7 +152,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Dark Mode */
+/* Dark mode */
 body.dark {
   background: linear-gradient(135deg, #1e1e1e, #2c3e50);
   color: #e0e0e0;
@@ -175,6 +196,22 @@ body.dark .delete-btn {
 
 body.dark .delete-btn:hover {
   background-color: #b91c1c;
+}
+
+body.dark .update-btn {
+  background-color: #fbbf24;
+}
+
+body.dark .update-btn:hover {
+  background-color: #f59e0b;
+}
+
+body.dark .finish-btn {
+  background-color: #34d399;
+}
+
+body.dark .finish-btn:hover {
+  background-color: #10b981;
 }
 
 body.dark footer {

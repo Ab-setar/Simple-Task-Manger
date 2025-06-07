@@ -1,4 +1,3 @@
-// Initial tasks
 let tasks = [
   { id: 1, title: 'Buy groceries', completed: false },
   { id: 2, title: 'Read a book', completed: true }
@@ -18,7 +17,16 @@ function renderTasks() {
 
     const span = document.createElement('span');
     span.textContent = task.title;
-    span.onclick = () => toggleCompleted(task.id);
+
+    const finishBtn = document.createElement('button');
+    finishBtn.textContent = task.completed ? 'Undo' : 'Finish';
+    finishBtn.className = 'finish-btn';
+    finishBtn.onclick = () => toggleCompleted(task.id);
+
+    const updateBtn = document.createElement('button');
+    updateBtn.textContent = 'Update';
+    updateBtn.className = 'update-btn';
+    updateBtn.onclick = () => updateTask(task.id);
 
     const delBtn = document.createElement('button');
     delBtn.textContent = 'Delete';
@@ -26,6 +34,8 @@ function renderTasks() {
     delBtn.onclick = () => deleteTask(task.id);
 
     li.appendChild(span);
+    li.appendChild(finishBtn);
+    li.appendChild(updateBtn);
     li.appendChild(delBtn);
     taskList.appendChild(li);
   });
@@ -56,6 +66,16 @@ function toggleCompleted(id) {
   renderTasks();
 }
 
+// Update task
+function updateTask(id) {
+  const task = tasks.find(t => t.id === id);
+  const newTitle = prompt('Update your task:', task.title);
+  if (newTitle !== null && newTitle.trim() !== '') {
+    task.title = newTitle.trim();
+    renderTasks();
+  }
+}
+
 // Delete task
 function deleteTask(id) {
   tasks = tasks.filter(task => task.id !== id);
@@ -70,11 +90,9 @@ newTaskInput.addEventListener('keydown', e => {
 
 // Dark mode logic
 function updateToggleIcon() {
-  if (document.body.classList.contains('dark')) {
-    toggleBtn.textContent = '🌞 Light Mode';
-  } else {
-    toggleBtn.textContent = '🌙 Dark Mode';
-  }
+  toggleBtn.textContent = document.body.classList.contains('dark')
+    ? '🌞 Light Mode'
+    : '🌙 Dark Mode';
 }
 
 if (localStorage.getItem('theme') === 'dark') {
